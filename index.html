@@ -1,0 +1,142 @@
+HTML
+
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MotoGo-Karayib</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7f5;color:#17251d}
+header{background:#10291d;color:white;padding:22px 16px;text-align:center}
+.logo{font-size:27px;font-weight:bold;color:#57e58b}
+header p{margin:8px 0 0}
+main{max-width:650px;margin:25px auto;padding:15px}
+.card{background:white;padding:22px;border-radius:16px;margin-bottom:18px;box-shadow:0 3px 15px #00000010}
+h2{color:#176d3c;margin-top:0}
+label{display:block;font-weight:bold;margin:14px 0 6px}
+input,select{width:100%;padding:13px;border:1px solid #ccd8d0;border-radius:9px;font-size:16px;background:white}
+button{width:100%;padding:15px;border:0;border-radius:10px;background:#159447;color:white;font-size:17px;font-weight:bold;margin-top:18px}
+button:active{opacity:.8}
+.small{color:#68756d;font-size:13px;text-align:center}
+footer{text-align:center;padding:25px;color:#65736a}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">🏍️ MotoGo-Karayib</div>
+<p>Deplase fasil, deplase vit!</p>
+</header>
+
+<main>
+<section class="card">
+<h2>Byenveni sou MotoGo!</h2>
+<p>Chwazi peyi ou ak lang ou pou kòmanse.</p>
+
+<label>Lang / Language</label>
+<select id="language">
+<option>Kreyòl</option>
+<option>Français</option>
+<option>English</option>
+<option>Español</option>
+</select>
+
+<label>Peyi ou</label>
+<select id="country">
+<option value="">Chwazi peyi</option>
+<option>Ayiti</option>
+<option>Repiblik Dominikèn</option>
+<option>Jamayik</option>
+<option>Kiba</option>
+<option>Bahamas</option>
+<option>Barbad</option>
+<option>Trinidad ak Tobago</option>
+<option>Sent Lisi</option>
+<option>Gwadloup</option>
+<option>Matinik</option>
+<option>Antigwa ak Babouda</option>
+<option>Dominik</option>
+<option>Grenad</option>
+<option>Sent Vensan ak Grenadin</option>
+<option>Sent Kits ak Nevis</option>
+<option>Beliz</option>
+<option>Giyàn</option>
+<option>Sirinam</option>
+<option>Puerto Rico</option>
+</select>
+</section>
+
+<section class="card">
+<h2>🚕 Mwen se kliyan</h2>
+<p>Ranpli enfòmasyon yo pou mande yon motosiklèt.</p>
+
+<label>Non ou</label>
+<input id="client" placeholder="Antre non ou">
+
+<label>Kote ou ye?</label>
+<input id="from" placeholder="Kote pou chofè a vin pran ou">
+
+<label>Kote ou prale?</label>
+<input id="to" placeholder="Antre destinasyon ou">
+
+<button onclick="book()">Mande yon motosiklèt</button>
+<p class="small" id="bookingResult"></p>
+</section>
+
+<section class="card">
+<h2>🏍️ Mwen se chofè</h2>
+<p>Enskri pou vin yon chofè MotoGo-Karayib.</p>
+
+<label>Non chofè a</label>
+<input id="driver" placeholder="Non konplè">
+
+<label>Nimewo telefòn</label>
+<input id="phone" placeholder="Nimewo telefòn">
+
+<label>Peyi ou travay</label>
+<select id="driverCountry">
+<option>Ayiti</option>
+<option>Repiblik Dominikèn</option>
+<option>Jamayik</option>
+<option>Barbad</option>
+<option>Trinidad ak Tobago</option>
+<option>Lòt peyi Karayib</option>
+</select>
+
+<button onclick="register()">Enskri kòm chofè</button>
+<p class="small" id="driverResult"></p>
+</section>
+</main>
+
+<footer>
+© 2026 MotoGo-Karayib<br>
+Yon sèl platfòm pou Karayib la 🌍
+</footer>
+
+<script>
+function book(){
+let n=document.getElementById('client').value;
+let f=document.getElementById('from').value;
+let t=document.getElementById('to').value;
+let c=document.getElementById('country').value;
+if(!n||!f||!t||!c){
+alert("Tanpri ranpli tout enfòmasyon yo.");
+return;
+}
+document.getElementById('bookingResult').innerText=
+"Mèsi "+n+"! Demann ou prepare. Sistèm chofè a poko konekte.";
+}
+function register(){
+let n=document.getElementById('driver').value;
+let p=document.getElementById('phone').value;
+if(!n||!p){
+alert("Tanpri antre non ak nimewo telefòn ou.");
+return;
+}
+document.getElementById('driverResult').innerText=
+"Mèsi "+n+"! Enfòmasyon ou prepare. Enskripsyon an poko konekte ak bazdone a.";
+}
+</script>
+</body>
+</html>
