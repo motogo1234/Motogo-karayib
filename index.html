@@ -152,11 +152,13 @@ let message = "Bonjou MotoGo-Karayib! Mwen vle enskri kòm chofè." +
 ". Peyi kote mwen travay: " + c;
 
 JavaScript
-window.location.href =
-"https://wa.me/50939956449?text=" + encodeURIComponent(message);
+document.getElementById('driverResult').innerText =
+"Mèsi! Enskripsyon ou ap tann validasyon administratè MotoGo-Karayib la.";
 
-alert("Mèsi! Enskripsyon ou ap tann validasyon administratè MotoGo-Karayib la.");
-}
+window.open(
+"https://wa.me/50939956449?text=" + encodeURIComponent(message),
+"_blank"
+);
 </script>
 </body>
 </html>
