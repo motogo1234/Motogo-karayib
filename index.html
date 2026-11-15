@@ -141,23 +141,21 @@ let n=document.getElementById('driver').value;
 let p=document.getElementById('phone').value;
 let c=document.getElementById('driverCountry').value;
 
-if(!n || !p){
+if(!n||!p){
 alert("Tanpri antre non ak nimewo telefòn ou.");
 return;
 }
 
-let message = "Bonjou MotoGo-Karayib! Mwen vle enskri kòm chofè." +
-". Non: " + n +
-". Telefòn: " + p +
-". Peyi kote mwen travay: " + c;
-
-JavaScript
-document.getElementById('driverResult').innerText =
-"Mèsi! Enskripsyon ou ap tann validasyon administratè MotoGo-Karayib la.";
+let message = "Bonjou MotoGo-Karayib! Nouvo chofè vle enskri."+
+" Non: "+n+
+". Telefòn: "+p+
+". Peyi: "+c;
 
 window.open(
-"https://wa.me/50939956449?text=" + encodeURIComponent(message),
+"https://wa.me/50939956449?text="+encodeURIComponent(message),
 "_blank"
+);
+}
 );
 </script>
 </body>
