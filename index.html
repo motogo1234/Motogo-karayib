@@ -115,17 +115,25 @@ Yon sèl platfòm pou Karayib la 🌍
 </footer>
 
 <script>
+JavaScript
 function book(){
-let n=document.getElementById('client').value;
-let f=document.getElementById('from').value;
-let t=document.getElementById('to').value;
-let c=document.getElementById('country').value;
-if(!n||!f||!t||!c){
-alert("Tanpri ranpli tout enfòmasyon yo.");
-return;
-}
-document.getElementById('bookingResult').innerText=
-"Mèsi "+n+"! Demann ou prepare. Sistèm chofè a poko konekte.";
+  let n=document.getElementById('client').value;
+  let f=document.getElementById('from').value;
+  let t=document.getElementById('to').value;
+  let c=document.getElementById('country').value;
+
+  if(!n || !f || !t || !c){
+    alert("Tanpri ranpli tout enfòmasyon yo.");
+    return;
+  }
+
+  let message = "Bonjou MotoGo-Karayib! Mwen se " + n +
+    ". Peyi: " + c +
+    ". Kote mwen ye: " + f +
+    ". Destinasyon: " + t +
+    ". Mwen ta renmen mande yon motosiklèt.";
+
+  window.location.href = "https://wa.me/50939956449?text=" + encodeURIComponent(message);
 }
 function register(){
 let n=document.getElementById('driver').value;
