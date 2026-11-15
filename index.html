@@ -135,15 +135,24 @@ function book(){
 
   window.location.href = "https://wa.me/50939956449?text=" + encodeURIComponent(message);
 }
+JavaScript
 function register(){
 let n=document.getElementById('driver').value;
 let p=document.getElementById('phone').value;
-if(!n||!p){
+let c=document.getElementById('driverCountry').value;
+
+if(!n || !p){
 alert("Tanpri antre non ak nimewo telefòn ou.");
 return;
 }
-document.getElementById('driverResult').innerText=
-"Mèsi "+n+"! Enfòmasyon ou prepare. Enskripsyon an poko konekte ak bazdone a.";
+
+let message = "Bonjou MotoGo-Karayib! Mwen vle enskri kòm chofè." +
+". Non: " + n +
+". Telefòn: " + p +
+". Peyi kote mwen travay: " + c;
+
+window.location.href =
+"https://wa.me/50939956449?text=" + encodeURIComponent(message);
 }
 </script>
 </body>
