@@ -94,6 +94,11 @@ footer{text-align:center;padding:25px;color:#65736a}
 <label>Nimewo telefòn</label>
 <input id="phone" placeholder="Nimewo telefòn">
 
+<label>Nimewo pyès idantite</label>
+<input id="identity" placeholder="Nimewo pyès idantite">
+
+<label>Nimewo plak motosiklèt</label>
+<input id="plate" placeholder="Nimewo plak motosiklèt">
 <label>Peyi ou travay</label>
 <select id="driverCountry">
 <option>Ayiti</option>
@@ -115,7 +120,7 @@ Yon sèl platfòm pou Karayib la 🌍
 </footer>
 
 <script>
-JavaScript
+
 function book(){
   let n=document.getElementById('client').value;
   let f=document.getElementById('from').value;
@@ -135,18 +140,26 @@ function book(){
 
   window.location.href = "https://wa.me/50939956449?text=" + encodeURIComponent(message);
 }
-JavaScript
+
+
 function register(){
 let n=document.getElementById('driver').value.trim();
 let p=document.getElementById('phone').value.trim();
+let id=document.getElementById('identity').value.trim();
+let plate=document.getElementById('plate').value.trim();
 let c=document.getElementById('driverCountry').value;
 
-if(!n||!p){
-alert("Tanpri antre non ak nimewo telefòn ou.");
+if(!n||!p||!id||!plate){
+alert("Tanpri ranpli tout enfòmasyon yo.");
 return;
 }
 
-let message="Bonjou MotoGo-Karayib! Nouvo chofè vle enskri. Non: "+n+". Telefòn: "+p+". Peyi: "+c;
+let message="Nouvo demann enskripsyon MotoGo-Karayib"+
+"\nNon: "+n+
+"\nTelefòn: "+p+
+"\nPyès idantite: "+id+
+"\nPlak motosiklèt: "+plate+
+"\nPeyi: "+c;
 
 window.location.href="https://wa.me/50939956449?text="+encodeURIComponent(message);
 }
