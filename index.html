@@ -137,8 +137,8 @@ function book(){
 }
 JavaScript
 function register(){
-let n=document.getElementById('driver').value;
-let p=document.getElementById('phone').value;
+let n=document.getElementById('driver').value.trim();
+let p=document.getElementById('phone').value.trim();
 let c=document.getElementById('driverCountry').value;
 
 if(!n||!p){
@@ -146,17 +146,10 @@ alert("Tanpri antre non ak nimewo telefòn ou.");
 return;
 }
 
-let message = "Bonjou MotoGo-Karayib! Nouvo chofè vle enskri."+
-" Non: "+n+
-". Telefòn: "+p+
-". Peyi: "+c;
+let message="Bonjou MotoGo-Karayib! Nouvo chofè vle enskri. Non: "+n+". Telefòn: "+p+". Peyi: "+c;
 
-window.open(
-"https://wa.me/50939956449?text="+encodeURIComponent(message),
-"_blank"
-);
+window.location.href="https://wa.me/50939956449?text="+encodeURIComponent(message);
 }
-);
 </script>
 </body>
 </html>
