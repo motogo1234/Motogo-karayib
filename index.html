@@ -164,10 +164,20 @@ let message="Nouvo demann enskripsyon MotoGo-Karayib"+
 window.location.href="https://wa.me/50939956449?text="+encodeURIComponent(message);
 }
 </script>
-<script type="module">
+JavaScript
 import { initializeApp } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-auth.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js";
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/13.4.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAcHiiraEPxXRSPLt-XFySQMwvYSonXpEs",
@@ -181,6 +191,48 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+
+window.register = async function() {
+  const n = document.getElementById('driver').value.trim();
+  const p = document.getElementById('phone').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const id = document.getElementById('identity').value.trim();
+  const plate = document.getElementById('plate').value.trim();
+  const c = document.getElementById('driverCountry').value;
+
+  if (!n || !p || !email || !password || !id || !plate || !c) {
+    alert("Tanpri ranpli tout enfòmasyon yo.");
+    return;
+  }
+
+  if (password.length < 8) {
+    alert("Modpas la dwe gen omwen 8 karaktè.");
+    return;
+  }
+
+  try {
+    const result = await createUserWithEmailAndPassword(
+      auth, email, password
+    );
+
+    await setDoc(doc(db, "drivers", result.user.uid), {
+      uid: result.user.uid,
+      name: n,
+      phone: p,
+      email: email,
+      identity: id,
+      plate: plate,
+      country: c,
+      status: "pending",
+      createdAt: serverTimestamp()
+    });
+
+    alert("Enskripsyon an reyisi! Demann ou ap tann validasyon.");
+  } catch (error) {
+    alert("Erè enskripsyon: " + error.message);
+  }
+};
 
 console.log("Firebase MotoGo-Karayib konekte!");
 </script>
