@@ -164,5 +164,25 @@ let message="Nouvo demann enskripsyon MotoGo-Karayib"+
 window.location.href="https://wa.me/50939956449?text="+encodeURIComponent(message);
 }
 </script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAcHiiraEPxXRSPLt-XFySQMwvYSonXpEs",
+  authDomain: "motogo-karayib.firebaseapp.com",
+  projectId: "motogo-karayib",
+  storageBucket: "motogo-karayib.firebasestorage.app",
+  messagingSenderId: "326903725631",
+  appId: "1:326903725631:web:f624f37e95f1de6a1b428a"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+console.log("Firebase MotoGo-Karayib konekte!");
+</script>
 </body>
 </html>
